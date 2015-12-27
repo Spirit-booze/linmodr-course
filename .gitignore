@@ -1,0 +1,7 @@
+_gh-pages
+*/figure
+*/cache
+*/.cache
+*/*.RData
+*/.Rhistory
+*_exercises
