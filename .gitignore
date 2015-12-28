@@ -1,4 +1,6 @@
 _gh-pages
+*_cache
+*_files
 */figure
 */cache
 */.cache
