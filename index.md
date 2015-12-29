@@ -61,22 +61,22 @@ description: Презентации к курсу Линейные модели,
 
 ## Презентации
 
-1. [Знакомство с R](pages/introduction_to_r.html)
-1. [Тестирование гипотез](pages/hypothesis_testing.html)
-1. [Анализ мощности](pages/power_analysis.html)
-1. [Простая линейная регрессия](pages/linear_regression.html)
-1. [Проверка условий применимости регрессионных моделей](pages/.html)
-1. [Множественная линейная регрессия](pages/.html)
-1. [Сравнение линейных моделей](pages/.html)
-1. [Линейные модели с непрерывными и дискретными предикторами (анализ ковариаций)](pages/.html)
-1. [Линейные модели только с дискретными предикторами (дисперсионный анализ)](pages/.html)
-1. [Многофакторный дисперсионный анализ](pages/.html)
-1. [Линейные модели для бинарных данных (логистическая регрессия)](pages/.html)
-1. [Линейные модели для счетных данных](pages/.html)
-1. [Смешанные линейные модели](pages/.html)
-1. [Коррекция гетерогенности дисперсий в смешанных линейных моделях](pages/.html)
-1. [Обобщенные смешанные линейные модели для бинарных данных](pages/.html)
-1. [Обобщенные смешанные модели для счетных данных](pages/.html)
+1. [Знакомство с R](pages/01_introduction_to_r.html)
+2. [Тестирование гипотез](pages/02_hypothesis_testing.html)
+3. [Анализ мощности](pages/03_power_analysis.html)
+4. [Простая линейная регрессия](pages/04_linear_regression.html)
+5. [Проверка условий применимости регрессионных моделей](pages/05_diagnostics_of_regression_models.html)
+6. [Множественная линейная регрессия](pages/06_multiple_linear_regression.html)
+7. [Сравнение линейных моделей](pages/07_model_selection.html)
+8. [Линейные модели с непрерывными и дискретными предикторами](pages/08_linear_regression_with_continuous_and_discreet_predictors.html)
+9. [Линейные модели только с дискретными предикторами (дисперсионный анализ)](pages/09_anova.html)
+10. [Многофакторный дисперсионный анализ](pages/10_two-way_anova_and_interactions.html)
+11. [Линейные модели для бинарных данных (логистическая регрессия)](pages/11_general_linear_models_for_binary_data.html)
+12. [Линейные модели для счетных данных](pages/12_general_linear_models_for_count_data.html)
+13. [Смешанные линейные модели](pages/13_general_linear_mixed_models.html)
+14. [Коррекция гетерогенности дисперсий в смешанных линейных моделях](pages/14_modelling_variance_structure.html)
+15. [Обобщенные смешанные линейные модели для бинарных данных](pages/15_general_linear_mixed_models_for_binary_data.html)
+16. [Обобщенные смешанные модели для счетных данных](pages/16_general_linear_mixed_models_for_count_data.html)
 
 ---
 
