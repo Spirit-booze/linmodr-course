@@ -78,8 +78,3 @@ description: Презентации к курсу Линейные модели,
 15. [Обобщенные смешанные линейные модели для бинарных данных](pages/15_general_linear_mixed_models_for_binary_data.html)
 16. [Обобщенные смешанные модели для счетных данных](pages/16_general_linear_mixed_models_for_count_data.html)
 
----
-
-## Благодарности
-
-- [Благодарности](pages/acknowledgements.html)
