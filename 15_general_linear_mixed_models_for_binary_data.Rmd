@@ -56,6 +56,7 @@ opts_chunk$set(fig.align='center', cache=FALSE, tidy = TRUE, fig.width = 7, fig.
 $f(y; N, \pi) = \frac{N!}{y! \times (N-y)!} \times \pi^y \times (1 - \pi)^{N-y}$
 
 <div class="columns-2">
+
 <small>
 
 ### Два параметра ($N$, $\pi$)
