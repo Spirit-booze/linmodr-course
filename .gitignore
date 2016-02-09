@@ -7,3 +7,4 @@ _gh-pages
 */*.RData
 */.Rhistory
 *_exercises
+.Rproj.user
