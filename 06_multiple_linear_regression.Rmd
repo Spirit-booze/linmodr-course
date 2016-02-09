@@ -46,14 +46,14 @@ opts_chunk$set(fig.align='center', tidy = FALSE, fig.width = 7, fig.height = 3)
 ## Читаем данные
 
 ```{r}
-bird <- read.csv("loyn.csv")
+bird <- read.csv("data/loyn.csv")
 head(bird)
 ```
 
 
 ##  Знакомимся с даными {.smaller .columns-2}
 
-<img src="figure/Australia.png" width="400" height="400" >   
+<img src="images/Australia.png" width="400" height="400" >   
 
 (Пример взять из книги Quinn&Keugh,2002; Оригинальная работа Loyn, 1987)
 
@@ -206,15 +206,14 @@ ABUND_diag <- fortify(model)
 ggplot(ABUND_diag, aes(x = .fitted, y = .stdresid)) + 
   geom_point(aes(size = .cooksd)) + 
   geom_smooth(se=FALSE) + 
-  geom_hline(yintercept=0)
+  geom_hline(aes(yintercept = 0))
 
 ```
 
 
 ## Проверяем распределение остатков на соответствие нормальному распределению
 ```{r}
-
-ggplot(ABUND_diag, aes(x = .resid)) + geom_histogram(bin = 5) 
+ggplot(ABUND_diag, aes(x = .resid)) + geom_histogram(binwidth = 5) 
 
 ```
 
@@ -227,7 +226,7 @@ qqPlot(model)
 
 ## Проверяем на гетероскедастичность
 ```{r, echo=FALSE, fig.width=5}
-ggplot(ABUND_diag, aes(x = .fitted, y = .stdresid)) + geom_point(size = 4) +  geom_hline(yintercept=0)
+ggplot(ABUND_diag, aes(x = .fitted, y = .stdresid)) + geom_point(size = 4) +  geom_hline(aes(yintercept = 0))
 ```
 
 

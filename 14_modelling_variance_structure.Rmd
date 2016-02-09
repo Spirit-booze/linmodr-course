@@ -27,7 +27,7 @@ output:
 
 ```{r setup, include = FALSE, cache = FALSE}
 #-- RUN THE FRAGMENT BETWEEN LINES BEFORE COMPILING MARKDOWN
-# to configure markdown parsing
+# to conimages markdown parsing
 options(markdown.extensions = c("no_intra_emphasis", "tables", "fenced_code", "autolink", "strikethrough", "lax_spacing", "space_headers", "latex_math"))
 #------
 # output options
@@ -55,7 +55,7 @@ $$y_i = \beta_0 + \beta_1x_i + \epsilon_i$$
 
 ## Теория смешанных моделей расширяет наши представления о случайной части модели 
 
-<img src="figure/model_structure_Zuur.png" width="800" height="300" >
+<img src="images/model_structure_Zuur.png" width="800" height="300" >
 
 из Zuur et al. 2009
 
@@ -88,12 +88,12 @@ $$b_i \sim N(0, \mathbf\Psi)$$
 <div class="columns-2">
 
 ```{r muss-data}
-myt <- read.table("myt.csv", sep=";", header =T)
+myt <- read.table("data/myt.csv", sep=";", header =T)
 head(myt, 12)
 ```
 
 
-<img src="figure/mussel_bed.png" width="400" height="400" >
+<img src="images/mussel_bed.png" width="400" height="400" >
 
 </div>
 
@@ -437,6 +437,7 @@ grid.arrange(Res_plot1, Diag_gls_plot1, ncol = 2)
 ```
 
 ##Диагностика модели с оптимальной структурой дисперсии
+
 ```{r, echo=FALSE, fig.height=5}
 
 Res_plot2 <- Res_plot2 + ggtitle("Было \nв начальной модели")
@@ -448,6 +449,7 @@ grid.arrange(Res_plot2, Diag_gls_plot2, ncol = 2)
 
 
 ##Диагностика модели с оптимальной структурой дисперсии
+
 ```{r, echo=FALSE, fig.height=5}
 Res_plot3 <- Res_plot3 + ggtitle("Было \nв начальной модели")
 Diag_gls_plot3 <- Diag_gls_plot3 + ggtitle("Стало после моделирования \nструктуры дисперсии")
@@ -470,9 +472,15 @@ grid.arrange(Res_plot4, Diag_gls_plot4, ncol = 2)
 
 
 ##Можно ли упростить модель?
+
 ```{r}
 M5_gls_ML <- update(M5_gls, method = "ML")
-drop1(M5_gls_ML, test = "Chi")
+# С какого-то момента перестал работать drop1()
+# drop1(M5_gls_ML, test = "Chi")
+M5_gls_ML_a <- update(M5_gls_ML, .~.-Large:fYear)
+M5_gls_ML_b <- update(M5_gls_ML, .~.-Large:Bank)
+anova(M5_gls_ML, M5_gls_ML_a)
+anova(M5_gls_ML, M5_gls_ML_b)
 ```
 
 Эту модель упростить нельзя!  

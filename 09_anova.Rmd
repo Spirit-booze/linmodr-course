@@ -319,16 +319,15 @@ gg_cu_total <- gg_cu +
 library(plyr)
 # Межгрупповая изменчивость (связанная с фактором)
 gg_cu_factor <- gg_cu + 
-  geom_hline(yintercept = gmean, linetype = "dashed") + 
-  geom_errorbar(stat = "hline", size = 1, yintercept = function(length) mean(length, na.rm = TRUE),  width = .8, aes(ymax = ..y.., ymin = ..y..)) + 
+  geom_hline(aes(yintercept = gmean), linetype = "dashed") + 
+  stat_summary(fun.y = "mean", geom = "point", size = 20, shape = 45) + 
   ggtitle("Факторная изменчивость\n(межгрупповая)")+
     annotate("text", label = "SS[x] == sum((bar(y) - hat(y)[i]))^2", parse = TRUE, x = 0,  y = yannot, hjust = -0.1, size = 6)
 
 # Внутригрупповая изменчивость (случайная)
 gg_cu_error <- gg_cu + 
   geom_jitter(position = position_jitter(width = 0.3)) +
-  geom_errorbar(stat = "hline",  size = 1, yintercept = function(length) mean(length, na.rm = TRUE), 
-                width = .8, aes(ymax = ..y.., ymin = ..y..)) + 
+  stat_summary(fun.y = "mean", geom = "point", size = 20, shape = 45, colour = "black") + 
   ggtitle("Случайная изменчивость\n(внутригрупповая)")+
     annotate("text", label = "SS[e] == sum(sum((y [i] - hat(y)[i])))^2", parse = TRUE, x = 0,  y = yannot, hjust = -0.1, size = 6)
 

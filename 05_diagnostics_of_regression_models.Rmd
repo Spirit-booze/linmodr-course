@@ -174,7 +174,7 @@ _Hint_: вспомните, что мы уже получили датафрей
 ## Решение
 
 ```{r, fig.align='center', fig.width=7, tidy=TRUE }
-ggplot(data = brain_diag, aes(x = .fitted, y = .stdresid)) + geom_point() + geom_hline(xintercept=0)
+ggplot(data = brain_diag, aes(x = .fitted, y = .stdresid)) + geom_point() + geom_hline(aes(yintercept = 0))
 ```
 
 
@@ -347,8 +347,8 @@ $$y_i = \beta_0 + \beta_1x_i + \epsilon_i$$
 
 ## Можно построить частотное распределение остатков
 ```{r, fig.hight=9, tidy=TRUE}
-ggplot(brain_model, aes(x=.stdresid)) + 
-  geom_histogram(bin=0.4, fill="blue", color="black") 
+ggplot(brain_model, aes(x = .stdresid)) + 
+  geom_histogram(binwidth = 0.4, fill = "blue", color = "black") 
 
 ```
 

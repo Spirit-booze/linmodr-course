@@ -68,7 +68,7 @@ lm_equation <- function(fit, strict = TRUE, rnd = 2){
 Тысячелистник _Achillea millefolium_ часто растет как сорняк на полях вместе с клевером _Trifolium repens_. Зависит ли урожай клевера от плотности тысячелистника?
 
 ```{r}
-clover <- read.delim("clover.csv")
+clover <- read.delim("data/clover.csv")
 names(clover)
 # Для удобства переименуем переменные
 names(clover) <- c("Plot", "Clover", "Yarrow")
@@ -597,7 +597,7 @@ lm_equation(M1, strict = FALSE, rnd = 3)
 - Weightgain - привес, кг
 - Initial.wt - начальный вес, кг
 
-<img src="./img/Goat-by-Jennifer-C.-Flickr.jpg" width="300" height="300">   
+<img src="images/Goat-by-Jennifer-C.-Flickr.jpg" width="300" height="300">   
 Goat by Jennifer C. [on Flickr](https://flic.kr/p/fjU4J9)
 </div>
 
@@ -607,7 +607,7 @@ http://www.statlab.uni-heidelberg.de/data/ancova/goats.story.html</div>
 ## Читаем и знакомимся с данными
 
 ```{r}
-goat <- read.delim("goats.csv")
+goat <- read.delim("data/goats.csv")
 str(goat)
 # переименуем переменные для краткости
 colnames(goat) <- c("treat", "wt", "init")

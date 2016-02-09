@@ -113,9 +113,9 @@ library(grid)
 
 pp <- ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) + geom_point() + theme(plot.title = element_text(size = 14), plot.margin = unit(c(0.5, 0.5, 0.1, 0.1), "lines"))
 
-under <- pp + stat_function(fun = lin, colour = "red") + labs(title = "Высокая погрешность (недообучение)")  +  annotate("text", x=1, y=17, label=lm_eqn(lc), hjust=0, size=5, family="Times", face="italic", parse=TRUE)
-right <- pp + stat_function(fun = cub, colour = "red") + labs(title = "Правильная модель ")  + annotate("text", x=1, y=17, label=lm_eqn(cc), hjust=0, size=5, family="Times", face="italic", parse=TRUE)
-over <- pp + stat_function(fun = fif, colour = "red") + labs(title = "Высокая дисперсия (переобучение)") + annotate("text", x=1, y=17, label=lm_eqn(fic), hjust=0, size=5, family="Times", face="italic", parse=TRUE)
+under <- pp + stat_function(fun = lin, colour = "red") + labs(title = "Высокая погрешность (недообучение)")  +  annotate("text", x=1, y=17, label=lm_eqn(lc), hjust=0, size=5, family="Times", fontface="italic", parse=TRUE)
+right <- pp + stat_function(fun = cub, colour = "red") + labs(title = "Правильная модель ")  + annotate("text", x=1, y=17, label=lm_eqn(cc), hjust=0, size=5, family="Times", fontface="italic", parse=TRUE)
+over <- pp + stat_function(fun = fif, colour = "red") + labs(title = "Высокая дисперсия (переобучение)") + annotate("text", x=1, y=17, label=lm_eqn(fic), hjust=0, size=5, family="Times", fontface="italic", parse=TRUE)
 right
 ```
 ```{r, echo=FALSE, fig.height=2.5, fig.width=10}
@@ -260,7 +260,7 @@ $$F = \frac {(SS _{error,reduced} - SS _{error,full}) / (df _{reduced, full} - d
 - ALT - высота над уровнем моря
 
 
-![forest in Victoria, Australia](./img/vict_m.jpg)
+![forest in Victoria, Australia](images/vict_m.jpg)
 <small>Mystic Forest - Warburton, Victoria by ¡kuba! on flickr</small>
 
 </div>
@@ -268,7 +268,7 @@ $$F = \frac {(SS _{error,reduced} - SS _{error,full}) / (df _{reduced, full} - d
 ## Вспомним, что мы знаем про эту модель с прошлого раза
 
 ```{r}
-birds <- read.csv("loyn.csv")
+birds <- read.csv("data/loyn.csv")
 M <- lm(ABUND ~ ., data = birds)
 library(car)
 vif(M) # есть колинеарные предикторы

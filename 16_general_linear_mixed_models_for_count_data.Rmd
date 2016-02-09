@@ -69,7 +69,7 @@ library(gridExtra)
 
 # Загружаем данные из интернета и сохраняем в файл, если его еще нет
 url <- "https://raw.githubusercontent.com/varmara/linmodr/master/16-glmm-pois-negbin/Owls_Roulin_Bersier_2007.csv"
-filename <- "Owls_Roulin_Bersier_2007.csv"
+filename <- "data/Owls_Roulin_Bersier_2007.csv"
 if (!file.exists(filename)) download(url, filename)
 ```
 

@@ -16,7 +16,7 @@ output:
 
 ```{r setup, include = FALSE, cache = FALSE}
 #-- RUN THE FRAGMENT BETWEEN LINES BEFORE COMPILING MARKDOWN
-# to configure markdown parsing
+# to conimages markdown parsing
 options(markdown.extensions = c("no_intra_emphasis", "tables", "fenced_code", "autolink", "strikethrough", "lax_spacing", "space_headers", "latex_math"))
 #------
 # output options
@@ -56,11 +56,11 @@ opts_chunk$set(fig.align='center', tidy = FALSE, fig.width = 7, fig.height = 3)
 
 Оригинальная работа Polis et al. (1998)
 ```{r}
-liz <- read.csv("polis.csv")
+liz <- read.csv("data/polis.csv")
 head(liz)
 ```
 
-<img src="figure/esher.jpg" width="500" height="500" >  
+<img src="images/esher.jpg" width="500" height="500" >  
 
 ## Зависит ли встречаемость ящериц от размера острова? {.smaller}
 *Зависимая переменная*: PA - (есть ящерицы "1" - нет ящериц "0")   
@@ -87,7 +87,7 @@ ggplot(liz, aes(x=PARATIO, y=PA)) + geom_point() + geom_smooth(method="lm", se=F
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=5}
 
-ggplot(liz, aes(x=PARATIO, y=PA)) + geom_smooth(method="glm", family="binomial", se=FALSE, size = 2) + ylab("Предсказанная вероятность встречи") + geom_point()
+ggplot(liz, aes(x=PARATIO, y=PA)) + geom_smooth(method="glm", method.args = list(family="binomial"), se=FALSE, size = 2) + ylab("Предсказанная вероятность встречи") + geom_point()
 ```
 
 Логистическая кривая описывается такой формулой
@@ -304,7 +304,7 @@ _Во сколько_ раз изменяются шансы встретить 
 
 
 ```{r, fig.height=5,fig.width=4.5,  echo=FALSE, fig.align='left'}
-ggplot(liz, aes(x=PARATIO, y=PA)) + geom_point() + geom_smooth(method="glm", family="binomial", se=TRUE, size = 2) + ylab("Вероятность встречи ящериц") + annotate("text", x=40, y=0.75, parse=TRUE, label = "pi == frac(e ^ {beta[0]+beta[1] %.% x}, 1 + e ^ {beta[0]+beta[1] %.% x})", size = 10)
+ggplot(liz, aes(x=PARATIO, y=PA)) + geom_point() + geom_smooth(method="glm", method.args = list(family="binomial"), se=TRUE, size = 2) + ylab("Вероятность встречи ящериц") + annotate("text", x=40, y=0.75, parse=TRUE, label = "pi == frac(e ^ {beta[0]+beta[1] %.% x}, 1 + e ^ {beta[0]+beta[1] %.% x})", size = 10)
 ```
 
 Cерая область - доверительный интервал для логистической регрессии
@@ -446,7 +446,7 @@ ggplot(MyData, aes(x = PARATIO, y = Pi)) +
 ## Смотрим на данные {.smaller}
 
 ```{r}
-surviv <- read.table("ICU.csv", header=TRUE, sep=";")
+surviv <- read.table("data/ICU.csv", header=TRUE, sep=";")
 head(surviv)
 ```
 
@@ -537,7 +537,7 @@ ggplot(M2_diag, aes(x = .fitted, y = .pears_resid)) +
 ## Zero inflation   
 
 ```{r, echo=FALSE, message=FALSE}
-ggplot(M2_diag, aes(x = .pears_resid)) + geom_histogram(fill = "blue", color = "black", bin = 0.2) + geom_vline(xintercept = 0, size = 1.2)
+ggplot(M2_diag, aes(x = .pears_resid)) + geom_histogram(fill = "blue", color = "black", binwidth = 0.2) + geom_vline(aes(xintercept = 0), size = 1.2)
 ```
 
 Преобладают отрицательные остатки.  

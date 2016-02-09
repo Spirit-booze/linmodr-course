@@ -16,7 +16,7 @@ output:
 
 ```{r setup, include = FALSE, cache = FALSE}
 #-- RUN THE FRAGMENT BETWEEN LINES BEFORE COMPILING MARKDOWN
-# to configure markdown parsing
+# to conimages markdown parsing
 options(markdown.extensions = c("no_intra_emphasis", "tables", "fenced_code", "autolink", "strikethrough", "lax_spacing", "space_headers", "latex_math"))
 #------
 # output options
@@ -216,9 +216,9 @@ ggplot(pi, aes(x = y, y = pi)) + geom_bar(stat = "identity") + facet_grid(N~mu, 
 Предсказаные значения, т.е. $E(Y_i)$, лежат на линии регрессии 
 
 <div class="columns-2">
-<img src="figure/poisson_model.png" width="500" height="500" >   
+<img src="images/poisson_model.png" width="500" height="500" >   
 
-<img src="figure/Zuur.png" width="500" height="500" >   
+<img src="images/Zuur.png" width="500" height="500" >   
 из кн. Zuur et al.2009    
 
 </dev>
@@ -310,7 +310,7 @@ Pl1
 Даные взяты из работы Khaitov, 2013
 
 ```{r muss-data, eval=FALSE}
-juv_ad <- read.table("mussel_juv_ad.csv", sep=";", header =T)
+juv_ad <- read.table("data/mussel_juv_ad.csv", sep=";", header =T)
 head(juv_ad, 12)
 ```
 
@@ -318,7 +318,7 @@ head(juv_ad, 12)
 
 ```{r muss-data, echo=FALSE}
 ```
-<img src="figure/mussel_bed.png" width="400" height="400" >
+<img src="images/mussel_bed.png" width="400" height="400" >
 </div>
 
 ## В этих данных ожидается проблема автокорреляции остатков

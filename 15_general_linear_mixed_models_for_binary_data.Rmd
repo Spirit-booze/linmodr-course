@@ -131,7 +131,7 @@ dat<-dat[-1,]
 
 dat_fr <- data.frame(x = unique(dat$x), y = tapply(dat$y, dat$x, data = dat, FUN=mean))
 
-ggplot(dat, aes(x=x, y=y)) + geom_smooth(method= "glm", family = "binomial", color = "red", size = 2)+ geom_point(aes(x=x, y=y), position = position_jitter(height = 0.01)) + geom_point(data = dat_fr, aes(x= x, y = y), size= 4, color = "blue")
+ggplot(dat, aes(x = x, y = y)) + geom_smooth(method= "glm", method.args = list(family = "binomial"), color = "red", size = 2) + geom_point(aes(x = x, y = y), position = position_jitter(height = 0.01)) + geom_point(data = dat_fr, aes(x = x, y = y), size = 4, color = "blue")
 
 ```
 
@@ -140,9 +140,9 @@ ggplot(dat, aes(x=x, y=y)) + geom_smooth(method= "glm", family = "binomial", col
 Данные взяты из работы    
 Yakovis Y., Artemieva A. "Bored to Death: Community-Wide Effect of Predation on a Foundation Species in a Low-Disturbance Arctic Subtidal System" PLOS, 2015. DOI: 10.1371/journal.pone.0132973    
   
-<img src="figure/druse.png" width="400" > 
+<img src="images/druse.png" width="400" > 
 
-<img src="figure/drilled_barnacle.png" height="550" > 
+<img src="images/drilled_barnacle.png" height="550" > 
 
 
 ##Вопрос: от каких факторов зависит будет ли атакован балянус хищником?
@@ -151,13 +151,13 @@ Yakovis Y., Artemieva A. "Bored to Death: Community-Wide Effect of Predation on 
 
 ###Дизайн сбора материала 
 
-<img align="middle" src="figure/design.png" width="600" height="400" > 
+<img align="middle" src="images/design.png" width="600" height="400" > 
 
 
 ##Читаем данные
 
 ```{r}
-bal <- read.table("Yakovis2.csv", header = TRUE, sep = ";")
+bal <- read.table("data/Yakovis2.csv", header = TRUE, sep = ";")
 ```
 
 ```{r}
@@ -192,13 +192,13 @@ bal$Substrate_ID <- factor(bal$Substrate_ID)
 ##Решение
 
 ```{r}
-bal1 <- bal[bal$Status=="live_barnacle", ]
+bal1 <- bal[bal$Status == "live_barnacle", ]
 mean(bal1$Drill ==1) 
 
 ```
 
 ```{r}
-bal2 <-  bal[bal$Status=="empty_test", ]
+bal2 <-  bal[bal$Status == "empty_test", ]
 mean(bal2$Drill == 1) 
 ```
 
