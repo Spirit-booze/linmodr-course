@@ -34,7 +34,7 @@ options(device = function(file, width = 7, height = 7, ...) {
   })
 library(knitr)
 # chunk default options
-opts_chunk$set(fig.align='center', tidy = FALSE, fig.width = 7, fig.height = 3)
+opts_chunk$set(fig.align='center', tidy = FALSE, fig.width = 7, fig.height = 3, warning = FALSE)
 ```
 
 # ЧАСТЬ 1. Основы основ
@@ -54,7 +54,7 @@ $$p= \frac {1}{\sigma \sqrt{2 \pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 ![Гаусс](images/Gauss.png)
 
 
-```{r, echo=FALSE, fig.width=4}
+```{r, echo=FALSE, fig.width=4, warning=FALSE}
 library (ggplot2)
 theme_set(theme_bw(base_size = 14))
 Mu <- 10
@@ -83,7 +83,7 @@ $$p= \frac {1}{\sigma \sqrt{2 \pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 
 Вот график ее частотного распределения в генеральной совокупности.
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 set.seed(38)
 X <- rnorm(n = 10000, mean = 50, sd = 7) # создаем вектор из 10000 значений нормально распределенной величины
 Mu <- mean(X)
@@ -93,7 +93,7 @@ gg_population
 
 ## Возьмем выборку из этой генеральной совокупности
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 i_1 <- sample(x = 10000, 20)
 sample_1 <- X[i_1]
 Mu_1 <- mean(sample_1)
@@ -117,7 +117,7 @@ $$SD=\sqrt{\frac{\sum{(x_i - \bar{x})^2}}{n-1}}$$
 
 ## В разных выборках средние значения будут отличаться.
 
-```{r echo=FALSE, fig.height=5.5}
+```{r echo=FALSE, fig.height=5.5, warning=FALSE}
 i_2 <- sample(x = 10000, 50)
 sample_2 <- X[i_2]
 Mu_2 <- mean(sample_2)
@@ -148,7 +148,7 @@ for (smpl in 1:100) {
 
 Среднее значение выборочных средних стремится к среднему в генеральной совокупности
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 gg_means <- ggplot(data = data.frame(means = my_means), aes(x = means)) + geom_histogram(binwidth=1, fill="steelblue", color="black") + labs(title = "100 sample means, N = 5") + xlim(30, 70) + geom_vline(aes(xintercept = Mu), colour = "red", size = 1) + geom_vline(aes(xintercept = mean(my_means)), colour = "red", size = 1, linetype = "dashed")
 gg_means
 ```
@@ -163,7 +163,7 @@ $$SE _\bar{x} = \sigma / \sqrt{N}$$
 
 То есть, чем больше будет объем выборок, тем меньше будет эта стандартная ошибка, и тем точнее мы оценим среднее в генеральной совокупности.
 
-```{r echo=FALSE, fig.width=4, fig.height=5}
+```{r echo=FALSE, fig.width=4, fig.height=5, warning=FALSE}
 # Создаем пустой вектор для записи средних
 my_means_30 <- rep(NA, 100)
 # Цикл
@@ -192,7 +192,7 @@ grid.arrange(gg_population, gg_means, gg_means_30, ncol = 1)
 - доверительные интервалы
 - статистические тесты
 
-```{r echo = FALSE, fig.height=5, fig.width=4}
+```{r echo = FALSE, fig.height=5, fig.width=4, warning=FALSE}
 grid.arrange(gg_population, gg_means_30, ncol = 1)
 ```
 
