@@ -45,8 +45,8 @@ slide.fill img {
 article p, article li, article li.build{
   font-family: 'Helvetica', 'Crimson Text', 'Garamond',  'Palatino', sans-serif;
   text-align: justify;
-  font-size:1em;
-  line-height: 1.1em;
+  font-size:0.9em;
+  line-height: 1em;
   color: #454545;
 }
 
